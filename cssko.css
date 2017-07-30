@@ -1,0 +1,40 @@
+body {
+    margin-left:5%;
+    margin-right:5%;
+    padding-top:1%;
+}
+
+button {
+    color:gray;
+    background-color: yellowgreen;
+    font-weight: 900;
+}
+
+button:hover {
+    background-color:gray;
+    color:yellowgreen;
+}
+
+h1, .centeredP {
+    text-align:center;
+}
+
+.mighty{
+/*    color:red; */
+/*   text-decoration:underline; */
+    font-style: italic;
+}
+
+.starterInfo {
+/*    background-image: url("images/equations.png");
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:100% 100%; */
+    color:grey;
+    background-color:yellowgreen;
+    
+}
+
+header{
+    background-color:white;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Mocné kalkulačky</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="skeleton.css">
+        <link rel="stylesheet" href="cssko.css">
+    </head>
+    <body>
+
+        <div id="container">
+            <div id="row">
+        
+ <!--       <button onClick="hideOrShow(activeCalculator.name,'ano')">Zobrazuj! </button>
+        <button onClick="hideOrShow(activeCalculator.name,'ne')">Skrývej! </button> -->
+                <header>
+                    <button class="four columns" onClick="setActiveCalculator(0)"> Stavebko! </button>
+                    <button class="four columns" onClick="setActiveCalculator(1)">Pokus! </button>
+                    <button class="four columns" onClick="doCalculation()">Počítej!</button>
+        <!--        <button onClick="start()">BEGIN!! </button> -->
+                </header>
+
+                <div>
+
+                    <div id ="calculators">
+                        <div class="starterInfo"> <!-- musí tu být tento div, protože k calculators budou appendchildy -->
+                            <h1>Tady jsou <span class = "mighty">nejmocnější kalkulačky</span> z celého světa! </h1>
+                            <p class="centeredP">Zavolej si je <span class ="mighty"> čudlíky </span> a <span class="mighty"> užívej si </span> jejici funkce!</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <script type="text/javascript" src="Stavebko.js"></script>
+                <script type="text/javascript" src="Pokus.js"></script>
+                <script type="text/javascript" src="Kalkulacky.js"></script>
+                <script> start(); </script>
+
+            </div>
+        </div>
+    </body>
+</html>

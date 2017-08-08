@@ -8,8 +8,8 @@ this.vstupy = [
 * každý vstup může mít název (to bude i jeho html idčko) a text na popisek vstupu a typ (asi vesměs integery?)
 */
     {label:"Máš rád Teletabís?", inputIdentifier:"PKStubbylove", typ:"seznam", value:"ano", moznosti:["ano","trochu","ne"]},
-    {label:"Počet prstů v jogurtu?", inputIdentifier:"PKSprsty", typ:"pole", inputtype:"number", value:2, minimum:0, maximum:20000000},
-    {label:"Kolik šmoulů šmlouluje na houpačce?",inputIdentifier:"PKSsmoulihoupacka",typ:"pole",inputtype:"number",value:10,minimum:0,maximum:20}
+    {label:"Počet prstů v jogurtu?", inputIdentifier:"PKSprsty", typ:"pole", inputtype:"number", value:2, step:1, minimum:0, maximum:20000000},
+    {label:"Kolik šmoulů šmlouluje na houpačce?",inputIdentifier:"PKSsmoulihoupacka",typ:"pole",inputtype:"number",value:10, step:1,minimum:0,maximum:20}
 
 ];
 
@@ -20,8 +20,8 @@ this.outputs = [
     // like in the vstupy array outputs will be defined here - most importantly their ID for
     // HTML, type and source, that will be most probably some array created by the calculate function
     
-    {outputIdentifier:"PKS_someCounter", typ: "table", columns:[] },
-    {outputIdentifier:"PKS_randomOutput", typ: "table", columns:[] }
+    {outputHeader:"Název1",outputIdentifier:"PKS_someCounter", typ: "table", columns:[] },
+    {outputHeader:"Název2",outputIdentifier:"PKS_randomOutput", typ: "table", columns:[] }
     
 ]; // similary to vstupy this will contain information about what outputs there will be
 

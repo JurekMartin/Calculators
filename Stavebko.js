@@ -7,17 +7,17 @@ this.vstupy = [
 /* tohle by mohlo obsahovat array se vstupy, které bude používat ta SS kalkulačka na tlačítka/popisky
 * každý vstup může mít název (to bude i jeho html idčko) a text na popisek vstupu a typ (asi vesměs integery?)
 */
-    {label:"Počáteční vklad", inputIdentifier:"SSpocvklad", typ:"pole", inputtype:"number", value:0, minimum:0, maximum:20000000},
-    {label:"Cílová částka", inputIdentifier:"SScilovka", typ:"pole", inputtype:"number", value:200000, minimum:0, maximum:20000000},
-    {label:"Sazba v %", inputIdentifier:"SSsazba",typ:"pole", inputtype:"number", value:2, minimum:0, maximum:100},
-    {label:"Pravidlený vklad", inputIdentifier:"SSpravvklad",typ:"pole", inputtype:"number", value:1800, minimum:0, maximum:20000000},
+    {label:"Počáteční vklad", inputIdentifier:"SSpocvklad", typ:"pole", inputtype:"number", value:0, step:10000, minimum:0, maximum:20000000},
+    {label:"Cílová částka", inputIdentifier:"SScilovka", typ:"pole", inputtype:"number", value:200000, step:10000, minimum:0, maximum:20000000},
+    {label:"Sazba v %", inputIdentifier:"SSsazba",typ:"pole", inputtype:"number", value:2,step:1, minimum:0, maximum:100},
+    {label:"Pravidlený vklad", inputIdentifier:"SSpravvklad",typ:"pole", inputtype:"number", value:1800,step:100, minimum:0, maximum:20000000},
     {label:"Periodicita vkladu", inputIdentifier:"SSvkladperioda",typ:"seznam", value:"roční", moznosti:["měsíční","čtvrtletní","roční"]},
-    {label:"Počáteční poplatek", inputIdentifier:"SSpocpopl", typ:"pole", inputtype:"number", value:2000, minimum:0, maximum:20000000},
-    {label:"Pravidelný poplatek", inputIdentifier:"SSpravpopl", typ:"pole", inputtype:"number", value:300, minimum:0, maximum:20000000},
+    {label:"Počáteční poplatek", inputIdentifier:"SSpocpopl", typ:"pole", inputtype:"number", value:2000,step:1, minimum:0, maximum:20000000},
+    {label:"Pravidelný poplatek", inputIdentifier:"SSpravpopl", typ:"pole", inputtype:"number", value:300,step:1, minimum:0, maximum:20000000},
     {label:"Periodicita poplatku", inputIdentifier:"SSpoplperioda", typ:"seznam", value:"roční", moznosti:["měsíční","čtvrtletní","roční"]},
-    {label:"Délka modelace v měsících", inputIdentifier:"SSmesmodelace", typ:"pole", inputtype:"number", value:72, minimum:1, maximum:240},
+    {label:"Délka modelace v měsících", inputIdentifier:"SSmesmodelace", typ:"pole", inputtype:"number", value:72,step:1, minimum:1, maximum:240},
     {label:"První měsíc", inputIdentifier:"SSprvmesic", typ:"seznam", value:"leden", moznosti:["leden", "únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec"]},
-    {label:"Počáteční rok", inputIdentifier:"SSpocrok", typ:"pole", inputtype:"number", value:2017, minimum:0, maximum:20000000}
+    {label:"Počáteční rok", inputIdentifier:"SSpocrok", typ:"pole", inputtype:"number", value:2017,step:1, minimum:0, maximum:20000000}
 ];
 
 //TADY JSOU PARAMETRY - ty, které se nezadávají do vstupů, ale jsou důležité pro výpočty
@@ -33,7 +33,7 @@ this.outputs = [
     // like in the vstupy array outputs will be defined here - most importantly their ID for
     // HTML, type and source, that will be most probably some array created by the calculate function
     
-    {outputIdentifier:"SS_someCounter", typ: "table", columns:[]} //tady místo toho labelu bude něco relevantního! :)
+    {outputHeader:"Název111L",outputIdentifier:"SS_someCounter", typ: "table", columns:[]} //tady místo toho labelu bude něco relevantního! :)
     
     
     

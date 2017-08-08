@@ -1,13 +1,15 @@
 body {
-    margin-left:5%;
-    margin-right:5%;
-    padding-top:1%;
+    margin-left:5vh;
+    margin-right:5vh;
 }
 
 button {
     color:gray;
     background-color: yellowgreen;
     font-weight: 900;
+    width:calc(95%/3.02);
+    display:inline-block;
+    margin-bottom:0.2vh;
 }
 
 button:hover {
@@ -20,21 +22,108 @@ h1, .centeredP {
 }
 
 .mighty{
-/*    color:red; */
-/*   text-decoration:underline; */
     font-style: italic;
 }
 
 .starterInfo {
-/*    background-image: url("images/equations.png");
-    background-repeat:no-repeat;
-    background-position:center center;
-    background-size:100% 100%; */
     color:grey;
     background-color:yellowgreen;
+    padding-top:2rem;
     
 }
 
-header{
+header, pokus{
     background-color:white;
+    width: 100%;
+    
+}
+
+header {
+    position: fixed;
+    top:1px;
+}
+
+.inputLabel {
+    display: inline-block;
+    width:50%;
+    height:4.5vh;
+}
+
+.inputField{
+    background-color:transparent;
+    border:none;
+    display:inline-block;
+    width:50%;
+    height:4.5vh;
+}
+
+.inputRow:nth-of-type(2n){
+    background-color:#e1f0c1;
+}
+
+.inputRow:nth-of-type(2n+1){
+    background-color:#ebf5d6;
+}
+
+.calcOutput {
+    margin: auto;
+    width:90%;
+}
+
+table {
+    border-collapse:collapse;
+}
+
+tr {
+    text-align:center;
+}
+
+td{
+    width:33%;
+    margin-left:0;
+    margin-right:0;
+}
+
+tr:nth-child(2n){
+    background-color:#e1f0c1;
+}
+
+tr:nth-child(2n+1){
+    background-color:#ebf5d6;
+}
+
+tr:nth-child(1){
+    font-weight:800;
+}
+
+.outputHeader{
+    font-weight:900;
+    font-size:150%;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:yellowgreen;
+    color:gray;
+}
+
+input[type=number]{
+
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+footer {
+  margin-top:1vh;
+
+  width:100%;
+  bottom:0;
+  left:0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }

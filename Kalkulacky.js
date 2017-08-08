@@ -52,11 +52,12 @@ for (z=0; z<arrayOfCalculators.length;z++){
     for (i=0; i<vstupykalku.length;i++){
         
         var vstup = document.createElement("div");
+        vstup.className = "inputRow";
         var label = document.createElement("label");
         label.innerHTML = vstupykalku[i].label;
 
         var input;
-     
+
         switch(vstupykalku[i].typ){
         
             case "pole":
@@ -64,6 +65,9 @@ for (z=0; z<arrayOfCalculators.length;z++){
                 input.type = vstupykalku[i].inputtype;
                 input.id = vstupykalku[i].inputIdentifier;        
                 input.value = vstupykalku[i].value;
+                input.step = vstupykalku[i].step;
+                input.min = vstupykalku[i].minimum;
+                input.max = vstupykalku[i].maximum;
                         
             break;
             
@@ -85,6 +89,8 @@ for (z=0; z<arrayOfCalculators.length;z++){
         
         };
         
+        label.className = "inputLabel six columns";
+        input.className = "inputField six columns";
         vstup.appendChild(label);
         vstup.appendChild(input);
         
@@ -112,17 +118,23 @@ var createOutputElements = function (){
  
         var vystup = document.createElement("div");
         vystup.id = arrayOfCalculators[ii].name+"_outputs";
+        vystup.className = "outputContainer";
 
         for (iii = 0; iii<arrayOfCalculators[ii].outputs.length;iii++){
-
+            
+           var addingOutputsHeader = document.createElement("div");
+           addingOutputsHeader.className="outputHeader";
+           addingOutputsHeader.innerHTML=arrayOfCalculators[ii].outputs[iii].outputHeader;
            var addingToOutputs = document.createElement(arrayOfCalculators[ii].outputs[iii].typ);
            addingToOutputs.id = arrayOfCalculators[ii].name +"_"+ arrayOfCalculators[ii].outputs[iii].outputIdentifier;
-           
+           addingToOutputs.className = "calcOutput";
+           vystup.appendChild (addingOutputsHeader);
            vystup.appendChild (addingToOutputs);
            
        };
 
         document.getElementById(arrayOfCalculators[ii].name).appendChild(vystup);
+        hideOrShow(arrayOfCalculators[ii].name+"_outputs",'ne');
 
     };
     
@@ -133,6 +145,7 @@ var writeTableData = function(calcName,IDofTable, arrayOfColumns, arrayOfFirstRo
     // gets a bunch of columns and puts them into the right outputs set of outputs
     // beware - the length of the first array of arrayOfColumns will set the number of rows of the table!
     
+
     var HTMLtext = "";
 
     if (typeof arrayOfFirstRow !== "undefined") {
@@ -172,9 +185,9 @@ var writeTableData = function(calcName,IDofTable, arrayOfColumns, arrayOfFirstRo
 
     
     
-        
+
     document.getElementById(calcName+"_"+IDofTable).innerHTML=HTMLtext;
-    
+
 };
 
 var createCalculator = function(){
@@ -221,6 +234,7 @@ var setActiveCalculator = function(calculatorNumber){
 var doCalculation = function(){
     getInputsFromForm();
     activeCalculator.calculate();
+    hideOrShow(activeCalculator.name+"_outputs","ano");
 };
 
 

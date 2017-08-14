@@ -1,15 +1,22 @@
 body {
-    margin-left:5vh;
-    margin-right:5vh;
+    margin-left:2%;
+    margin-right:2%;
+}
+
+.headerButton {
+
+    display:inline-block;
 }
 
 button {
     color:gray;
     background-color: yellowgreen;
     font-weight: 900;
-    width:calc(95%/3.02);
+    font-size:1rem;
+    width:100%;
     display:inline-block;
     margin-bottom:0.2vh;
+    display:inline-block;
 }
 
 button:hover {
@@ -28,25 +35,21 @@ h1, .centeredP {
 .starterInfo {
     color:grey;
     background-color:yellowgreen;
-    padding-top:2rem;
-    
-}
-
-header, pokus{
-    background-color:white;
-    width: 100%;
-    
+    padding-top:2rem;    
 }
 
 header {
+    background-color:white;
+    width: 100%;
     position: fixed;
     top:1px;
+    font-size:0;
 }
 
 .inputLabel {
     display: inline-block;
     width:50%;
-    height:4.5vh;
+    height:1.5rem;
 }
 
 .inputField{
@@ -54,8 +57,15 @@ header {
     border:none;
     display:inline-block;
     width:50%;
-    height:4.5vh;
+    height:1.5rem;
 }
+
+.inputFieldTable {
+    text-align:center;
+    background-color:transparent;
+    border:none;
+}
+
 
 .inputRow:nth-of-type(2n){
     background-color:#e1f0c1;
@@ -78,11 +88,6 @@ tr {
     text-align:center;
 }
 
-td{
-    width:33%;
-    margin-left:0;
-    margin-right:0;
-}
 
 tr:nth-child(2n){
     background-color:#e1f0c1;
@@ -92,7 +97,7 @@ tr:nth-child(2n+1){
     background-color:#ebf5d6;
 }
 
-tr:nth-child(1){
+.tableHeader{
     font-weight:800;
 }
 
@@ -118,12 +123,24 @@ select {
 }
 
 footer {
-  margin-top:1vh;
-
+  margin-top:0vh;
+  position:relative;
   width:100%;
   bottom:0;
   left:0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
+  height:10vh;
+  background-color: pink;
+  font-size:2vh;
 }
+
+.container {
+    min-height:85vh;
+}
+
+.vertAlignMiddle {
+    text-align:center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+

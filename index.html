@@ -15,21 +15,15 @@ and open the template in the editor.
     </head>
     <body>
 
-        <div id="container">
-            <div id="row">
+        <div id="container" class="container">
+
         
  <!--       <button onClick="hideOrShow(activeCalculator.name,'ano')">Zobrazuj! </button>
         <button onClick="hideOrShow(activeCalculator.name,'ne')">Skrývej! </button> -->
-                <header>
-                    <button class="four columns" onClick="setActiveCalculator(0)"> Stavebko! </button>
-                    <button class="four columns" onClick="setActiveCalculator(1)">Pokus! </button>
-                    <button class="four columns" onClick="doCalculation()">Počítej!</button>
-        <!--        <button onClick="start()">BEGIN!! </button> -->
+                <header id="cudliky">
                 </header>
 
-
-
-                    <div id ="calculators">
+                    <div id ="calculators" class="calculators">
                         <div  class="starterInfo"> <!-- musí tu být tento div, protože k calculators budou appendchildy -->
                             <h1>Tady jsou <span class = "mighty">nejmocnější kalkulačky</span> z celého světa! </h1>
                             <p class="centeredP">Zavolej si je <span class ="mighty"> čudlíky </span> a <span class="mighty"> užívej si </span> jejici funkce!</p>
@@ -37,11 +31,11 @@ and open the template in the editor.
                     </div>
 
 
-            </div>
+
         </div>
         
         <footer>
-            <p> Tuto srandu jsem vyrobil já! </p>
+            <p class="vertAlignMiddle"> Tuto srandu jsem vyrobil já! Je tu nějaký rozumně dlouhý text, protože chci zkusit, jak to bude vypadat na víc řádků. Hele na to!!! Ajajaj, ještě to není dost dlouhý, tak teď už by ale mohlo ne? :) Hmmmm, tak teď už ale!! </p>
         </footer>
         
         <script type="text/javascript" src="Stavebko.js"></script>
@@ -49,5 +43,6 @@ and open the template in the editor.
         <script type="text/javascript" src="Kalkulacky.js"></script>
         <script> start(); </script>
     </body>
+
     
 </html>

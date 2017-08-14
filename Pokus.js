@@ -7,13 +7,13 @@ this.vstupy = [
 /* tohle by mohlo obsahovat array se vstupy, které bude používat ta SS kalkulačka na tlačítka/popisky
 * každý vstup může mít název (to bude i jeho html idčko) a text na popisek vstupu a typ (asi vesměs integery?)
 */
-    {label:"Máš rád Teletabís?", inputIdentifier:"PKStubbylove", typ:"seznam", value:"ano", moznosti:["ano","trochu","ne"]},
-    {label:"Počet prstů v jogurtu?", inputIdentifier:"PKSprsty", typ:"pole", inputtype:"number", value:2, step:1, minimum:0, maximum:20000000},
+    {label:"Máš rád Teletabís?", inputIdentifier:"PKStubbylove", typ:"seznam", value:"ano", moznosti:[["ano",1],["trochu",1],["ne",1]]},
+    {label:"Počet prstů v jogurtu?", inputIdentifier:"PKSprsty", typ:"pole", inputtype:"number", value:2, step:1, minimum:10, maximum:20000000},
     {label:"Kolik šmoulů šmlouluje na houpačce?",inputIdentifier:"PKSsmoulihoupacka",typ:"pole",inputtype:"number",value:10, step:1,minimum:0,maximum:20}
 
 ];
 
-this.inputValues = []; // array that will be filled with inputs from forms
+this.inputValues = {}; // array that will be filled with inputs from forms
 
 
 this.outputs = [
@@ -21,7 +21,7 @@ this.outputs = [
     // HTML, type and source, that will be most probably some array created by the calculate function
     
     {outputHeader:"Název1",outputIdentifier:"PKS_someCounter", typ: "table", columns:[] },
-    {outputHeader:"Název2",outputIdentifier:"PKS_randomOutput", typ: "table", columns:[] }
+    {outputHeader:"Název2",outputIdentifier:"PKS_randomOutput", typ: "table", columns:[]}
     
 ]; // similary to vstupy this will contain information about what outputs there will be
 

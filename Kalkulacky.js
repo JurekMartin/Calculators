@@ -1,7 +1,6 @@
 var mesice = ["leden", "únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec"];
-
-var calculatorsInUse = [stavebko,pokus]; //all calculators I will use will be in this array
-var arrayOfCalculators = []; // sem se budou vytvářet a tady se bude pracovat s objekty kalkulaček
+var arrayOfCalculators = [stavebko,pokus]; //all calculators I will use will be in this array
+//var arrayOfCalculators = []; // sem se budou vytvářet a tady se bude pracovat s objekty kalkulaček
 
 var hideOrShow = function (inputIdentifier,zobrazuju){
 
@@ -43,7 +42,6 @@ for (z=0; z<arrayOfCalculators.length;z++){
     
     var vstupykalku = arrayOfCalculators[z].vstupy;
     
-  //  var array = calculatorsInUse[z].vstupy;
         
     var mistovstupu = document.getElementById(inputIdentifier);
     
@@ -78,8 +76,8 @@ for (z=0; z<arrayOfCalculators.length;z++){
                 
                 for(y=0; y<vstupykalku[i].moznosti.length;y++){
                     var moznost = document.createElement("option");
-                    moznost.value =  vstupykalku[i].moznosti[y];
-                    moznost.innerHTML = vstupykalku[i].moznosti[y];
+                    moznost.value =  vstupykalku[i].moznosti[y][1];
+                    moznost.innerHTML = vstupykalku[i].moznosti[y][0];
                     input.appendChild(moznost);
                 };
                 
@@ -150,10 +148,10 @@ var writeTableData = function(calcName,IDofTable, arrayOfColumns, arrayOfFirstRo
 
     if (typeof arrayOfFirstRow !== "undefined") {
 
-        HTMLtext += "<tr>";
+        HTMLtext += "<tr class=\"tableHeader\">";
 
         for (i=0;i<arrayOfFirstRow.length;i++){ //adds the first fow based on arrayOfFirstRow
-            HTMLtext += "<td>"+arrayOfFirstRow[i]+"</td>";
+            HTMLtext += "<td class= \""+ IDofTable+ "\">"+arrayOfFirstRow[i]+"</td>";
         };
 
         HTMLtext+="</tr>";
@@ -170,7 +168,7 @@ var writeTableData = function(calcName,IDofTable, arrayOfColumns, arrayOfFirstRo
 
                 if (typeof arrayOfColumns[i][y] !== "undefined"){
 
-                    HTMLtext +="<td>"
+                    HTMLtext +="<td class= \""+ IDofTable+ "\">"
                     HTMLtext += arrayOfColumns[i][y];
                     HTMLtext +="</td>";
                 };
@@ -188,6 +186,9 @@ var writeTableData = function(calcName,IDofTable, arrayOfColumns, arrayOfFirstRo
 
     document.getElementById(calcName+"_"+IDofTable).innerHTML=HTMLtext;
 
+ //   document.getElementByClassName(IDofTable).style.width="\"" + 100/arrayOfColumns.length+"%"+ "\"" ;
+//    document.getElementByClassName(IDofTable).style.backgroundColor='red';
+//   document.getElementByClassName("SS_someCounter").setAttribue("width","100px");
 };
 
 var createCalculator = function(){
@@ -198,22 +199,23 @@ var createCalculator = function(){
     //a pro každou udělá nový objekt kalk_název kalkulačky
     // tuhle funkci chci rozjet na začátku PRÁVĚ JEDNOU!! jinak to bude dělat bordel :)
     
-    for (i=0;i<calculatorsInUse.length;i++){
+    for (i=0;i<arrayOfCalculators.length;i++){
     
     var vkladam = document.createElement("div");
-    vkladam.id = calculatorsInUse[i].name;
+    vkladam.id = arrayOfCalculators[i].name;
     HTMLofCalculatorsSection.appendChild(vkladam);
-    arrayOfCalculators[i] = new calculatorsInUse[i]();
+    arrayOfCalculators[i] = new arrayOfCalculators[i]();
     hideOrShow(arrayOfCalculators[i].name,"ne");
     };
     
 };
 
 var start = function(){
-  
+    
     createCalculator();
     createHTMLforms();
     createOutputElements();
+    createButtons(["Stavebko!","Pokus!"]);
     
 };
 
@@ -237,11 +239,68 @@ var doCalculation = function(){
     hideOrShow(activeCalculator.name+"_outputs","ano");
 };
 
+var createArrayOfText = function (text,number){
+    var array =[];
+    for (i=0;i<number;i++){
+        array[i]=text;
+    };
+    
+    return(array);
+    
+};
+
+var createInputElementText = function (inputType,inputClass,inputName,inputValue,inputStep){
+    var text = "";  
+    text +="<input type=\""+inputType+"\""; 
+    text +=" "+"class=\""+inputClass+"\""; 
+    text +=" "+"name=\""+inputName+"\""; 
+    text +=" "+"value="+inputValue;
+    text +=" "+"step="+inputStep;   
+    text +="> </input>";
+    return(text);
+
+
+};
+
+var roundArrayOfNumbers = function (array, digits) {
+  
+    for (i=0;i<array.length;i++) {
+        array[i]=Math.round(Math.pow(10,digits)*array[i])/Math.pow(10,digits);
+    }
+    
+};
+
+var createButtons = function(arrayOfNames){
+    //for each name in arrayOfNames creates a button with given name
+    //when clicked the button activates the n-th calculator from arrayOfCalculators
+    //after that it creates the "Počítej!" button
+    // every button has it's width set accordingly to the number of buttons
+    
+    
+    var buttonCount = arrayOfNames.length + 1;
+    var header = document.getElementById("cudliky");
+
+    for (i=0;i<buttonCount-1;i++){
+        var cudlik = document.createElement("span");
+        cudlik.className="headerButton";
+        cudlik.innerHTML = "<button onclick=setActiveCalculator("+i+")  >"+arrayOfNames[i]+"</button>";
+        cudlik.style.width=96/buttonCount+"%";
+        header.appendChild(cudlik);
+    };
+    
+        var cudlik = document.createElement("span");
+        cudlik.className="headerButton";
+        cudlik.innerHTML = "<button onclick=doCalculation()>Počítej!</button>";
+        cudlik.style.width=96/buttonCount+"%";
+        header.appendChild(cudlik);   
+    
+    
+};
 
 /*
  * This is how everything works:
  * 
- * 1) start takes calculatorsInUse and creates a ne object based on them into arrayOfCalculators
+ * 1) start takes arrayOfCalculators and creates a ne object based on them into arrayOfCalculators
  * 
  * 2) then it creates HTML elements of the calculator and it's interface - DIV with ID of the calculator name and forms with inputs
  * source for the inputs and how to create them is the calculator's "vstupy" array
